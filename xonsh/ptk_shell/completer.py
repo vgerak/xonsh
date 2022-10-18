@@ -114,6 +114,8 @@ class PromptToolkitCompleter(Completer):
                 yield comp
             else:
                 disp = comp[pre:].strip("'\"")
+                if not plen:
+                    plen = len(prefix)
                 yield Completion(comp, -plen, display=disp)
 
     def suggestion_completion(self, document, line):
